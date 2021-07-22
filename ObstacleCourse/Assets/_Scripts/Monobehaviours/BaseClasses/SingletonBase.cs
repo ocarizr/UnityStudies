@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Monobehaviours.BaseClass
 {
-    public class SingletonBase<T> : MonoBehaviour where T : class
+    public class SingletonBase<T> : MonoBehaviour where T : SingletonBase<T>
     {
         // Instance manager
         private static T _instance;
