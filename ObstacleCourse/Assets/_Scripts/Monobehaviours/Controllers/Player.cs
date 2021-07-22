@@ -15,8 +15,6 @@ namespace Monobehaviours
 
         private ControllerInput _controller;
 
-        [SerializeField] private Command _movementCommand;
-
         private void OnMovement(InputAction.CallbackContext context)
         {
             var value = context.ReadValue<Vector2>();
