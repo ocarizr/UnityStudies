@@ -1,6 +1,6 @@
+using Monobehaviours.BaseClass;
 using TMPro;
 using UnityEngine;
-using Monobehaviours.BaseClass;
 
 namespace Monobehaviours.Manager
 {

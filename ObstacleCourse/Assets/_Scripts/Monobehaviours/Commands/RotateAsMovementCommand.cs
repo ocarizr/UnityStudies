@@ -31,7 +31,7 @@ namespace Monobehaviours
             {
                 var currRot = _rigidbody.rotation.eulerAngles;
                 var input = _input.MovementInput;
-                var nextRot = Quaternion.Euler(_clockDirection ? 
+                var nextRot = Quaternion.Euler(_clockDirection ?
                                                         currRot + input :
                                                         currRot - input);
 
@@ -44,7 +44,7 @@ namespace Monobehaviours
 
         public override void Execute()
         {
-            if(_rotateCoroutine is null)
+            if (_rotateCoroutine is null)
             {
                 _rotateCoroutine = StartCoroutine(Rotate());
             }

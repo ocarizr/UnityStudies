@@ -13,11 +13,10 @@ namespace Monobehaviours.BaseClass
             if (_instance is null)
             {
                 _instance = this as T;
+                return;
             }
-            else
-            {
-                Destroy(gameObject);
-            }
+
+            Destroy(gameObject);
         }
     }
 }

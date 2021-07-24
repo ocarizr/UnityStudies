@@ -1,5 +1,5 @@
-using UnityEngine;
 using Monobehaviours.AbstractClass;
+using UnityEngine;
 
 namespace Monobehaviours
 {
@@ -7,13 +7,13 @@ namespace Monobehaviours
     {
         [SerializeField] private Vector3 _spinVelocity;
 
-        protected override void Movement() => _movementEvent.Invoke(_spinVelocity);
-
-        private void Start()
+        protected override void Movement()
         {
             var randomYRot = Random.Range(0, 90);
             transform.rotation = Quaternion.Euler(0, randomYRot, 0);
-            Movement();
+            _movementEvent.Invoke(_spinVelocity);
         }
+
+        private void Start() => Movement();
     }
 }
