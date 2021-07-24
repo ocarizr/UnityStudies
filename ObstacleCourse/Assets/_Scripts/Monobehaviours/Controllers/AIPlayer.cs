@@ -10,7 +10,7 @@ namespace Monobehaviours
 
         private void Awake()
         {
-            if(_aiBehaviour)
+            if(_aiBehaviour is { })
             {
                 _aiBehaviour.SubscribeToMovement(MovementInputListener);
             }

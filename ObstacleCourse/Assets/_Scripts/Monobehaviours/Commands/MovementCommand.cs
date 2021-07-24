@@ -30,7 +30,7 @@ namespace Monobehaviours
             while (_movementInput.MovementInput != Vector3.zero)
             {
                 var speed = Time.fixedDeltaTime * _speed;
-                _rigidbody.MovePosition(transform.position + (_movementInput.MovementInput * speed));
+                _rigidbody.MovePosition(_rigidbody.position + (_movementInput.MovementInput * speed));
                 yield return _wait;
             }
 
@@ -39,7 +39,7 @@ namespace Monobehaviours
 
         public override void Execute()
         {
-            if (_moveCoroutine == null)
+            if (_moveCoroutine is null)
             {
                 _moveCoroutine = StartCoroutine(Move());
             }

@@ -30,7 +30,7 @@ namespace Monobehaviours
 
         private void OnEnable()
         {
-            if (_movementCommand)
+            if (_movementCommand is { })
             {
                 _controller.Controller.Movement.performed += OnMovement;
             }
@@ -39,7 +39,7 @@ namespace Monobehaviours
 
         private void OnDisable()
         {
-            if (_movementCommand)
+            if (_movementCommand is { })
             {
                 _controller.Controller.Movement.performed -= OnMovement;
             }

@@ -10,7 +10,7 @@ namespace Monobehaviours.BaseClass
 
         protected void Awake()
         {
-            if (_instance == null)
+            if (_instance is null)
             {
                 _instance = this as T;
             }

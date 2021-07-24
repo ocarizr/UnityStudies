@@ -44,7 +44,7 @@ namespace Monobehaviours
 
         public override void Execute()
         {
-            if(_rotateCoroutine == null)
+            if(_rotateCoroutine is null)
             {
                 _rotateCoroutine = StartCoroutine(Rotate());
             }
