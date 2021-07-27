@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public class Command : MonoBehaviour
+namespace Monobehaviours.BaseClasses
 {
-    public virtual void Execute() { }
+    public class Command : MonoBehaviour
+    {
+        public virtual void Execute() { }
+    }
 }
