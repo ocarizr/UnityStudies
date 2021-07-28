@@ -4,5 +4,5 @@ using UnityEngine;
 
 namespace Interfaces.Level
 {
-    public interface IPod { }
+    public interface IPad { }
 }

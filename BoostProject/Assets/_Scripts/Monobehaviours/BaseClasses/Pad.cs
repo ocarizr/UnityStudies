@@ -5,21 +5,21 @@ using Compositions.Behaviours;
 
 namespace Monobehaviours.BaseClasses
 {
-    public class Pod : MonoBehaviour, IPod
+    public class Pad : MonoBehaviour, IPad
     {
-        [SerializeField] protected PodType _podType;
+        [SerializeField] protected PadType _podType;
 
-        private IPod _podBehaviour;
+        private IPad _podBehaviour;
 
         private void Awake()
         {
             switch (_podType)
             {
-                case PodType.Launch:
-                    _podBehaviour = new LaunchPod();
+                case PadType.Launch:
+                    _podBehaviour = new LaunchPad();
                     break;
-                case PodType.Landing:
-                    _podBehaviour = new LandingPod();
+                case PadType.Landing:
+                    _podBehaviour = new LandingPad();
                     break;
             }
         }

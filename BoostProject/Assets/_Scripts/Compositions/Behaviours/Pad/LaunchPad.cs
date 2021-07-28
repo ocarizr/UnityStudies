@@ -5,7 +5,7 @@ using Interfaces.Level;
 
 namespace Compositions.Behaviours
 {
-    public class LaunchPod : IPod
+    public class LaunchPad : IPad
     {
     }
 }

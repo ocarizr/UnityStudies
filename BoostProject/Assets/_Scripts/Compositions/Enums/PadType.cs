@@ -1,6 +1,6 @@
 namespace Compositions.Enum
 {
-    public enum PodType
+    public enum PadType
     {
         Launch,
         Landing
