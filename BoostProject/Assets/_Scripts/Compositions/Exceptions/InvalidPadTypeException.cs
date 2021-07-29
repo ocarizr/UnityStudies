@@ -1,20 +1,8 @@
-using System;
-using Compositions.Behaviours;
+﻿using System;
 using Compositions.Enum;
-using Interfaces.Level;
 
-namespace Compositions.Factories
+namespace Compositions.Exceptions
 {
-    public static class PadBehaviourFactory
-    {
-        public static IPad Build(PadType type) => type switch
-        {
-            PadType.Launch => new LaunchPad(),
-            PadType.Landing => new LandingPad(),
-            _ => throw new InvalidPadTypeException(type),
-        };
-    }
-
     public class InvalidPadTypeException : Exception
     {
         public InvalidPadTypeException() 

@@ -3,6 +3,8 @@ using Interfaces.Level;
 using Compositions.Enum;
 using Compositions.Factories;
 
+using System;
+
 namespace Monobehaviours.BaseClasses
 {
     public class Pad : MonoBehaviour, IPad
@@ -13,7 +15,9 @@ namespace Monobehaviours.BaseClasses
 
         private void Awake()
         {
-            _padBehaviour = PadBehaviourFactory.Build(_padType);
+            var builder = new PadBehaviourBuilder();
+            builder.AddCapability(_padType);
+            _padBehaviour = builder.Build();
         }
     }
 }

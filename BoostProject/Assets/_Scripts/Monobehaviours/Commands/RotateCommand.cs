@@ -1,7 +1,8 @@
 using System.Collections;
 using UnityEngine;
-using Interfaces.Input;
 using Monobehaviours.Abstracts;
+using Interfaces.Input;
+using Compositions.BaseClasses;
 
 namespace Monobehaviours.Commands
 {
@@ -13,9 +14,7 @@ namespace Monobehaviours.Commands
         private Coroutine _rotate;
         private WaitForFixedUpdate _waitForFixedUpdate;
 
-        [SerializeField] private float _rotateSpeed;
-        [SerializeField] [Range(0, 1)] private float _rotateModifierRate;
-        [SerializeField] private AnimationCurve _rotateModifier;
+        [SerializeField] private SpeedProperties _speedProperties;
 
         private void Awake()
         {
@@ -34,23 +33,16 @@ namespace Monobehaviours.Commands
 
         private IEnumerator Rotate()
         {
-            var time = Time.time;
+            var start = Time.time;
             while (_input.RotateInput != 0f)
             {
-                var speed = CalculateSpeed(time);
+                var speed = _speedProperties.CalculateSpeed(start, _input.RotateInput);
                 var nextRotation = GetNextRotation(speed);
                 _rigidbody.MoveRotation(Quaternion.Euler(nextRotation));
                 yield return _waitForFixedUpdate;
             }
 
             _rotate = null;
-        }
-
-        private float CalculateSpeed(float time)
-        {
-            var elapsed = Time.time - time;
-            var curveIndex = Mathf.Clamp01(elapsed * _rotateModifierRate);
-            return _rotateSpeed * _rotateModifier.Evaluate(curveIndex) * _input.RotateInput;
         }
 
         private Vector3 GetNextRotation(float speed)
