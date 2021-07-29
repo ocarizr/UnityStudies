@@ -15,16 +15,36 @@ namespace Monobehaviours.Controllers
 
         private void OnEnable()
         {
-            if (_thrustCommand is { }) _input.Controller.Thrust.performed += OnThrust;
-            if(_rotateCommand is { }) _input.Controller.Rotation.performed += OnRotate;
+            var controller = _input.Controller;
+            if (_thrustCommand is { })
+            {
+                var action = controller.Thrust;
+                action.performed += OnThrust;
+            }
+
+            if (_rotateCommand is { })
+            {
+                var action = controller.Rotation;
+                action.performed += OnRotate;
+            }
 
             _input.Enable();
         }
 
         private void OnDisable()
         {
-            if (_thrustCommand is { }) _input.Controller.Thrust.performed -= OnThrust;
-            if (_rotateCommand is { }) _input.Controller.Rotation.performed -= OnRotate;
+            var controller = _input.Controller;
+            if (_thrustCommand is { })
+            {
+                var action = controller.Thrust;
+                action.performed -= OnThrust;
+            }
+
+            if (_rotateCommand is { })
+            {
+                var action = controller.Rotation;
+                action.performed -= OnRotate;
+            }
 
             _input.Disable();
         }

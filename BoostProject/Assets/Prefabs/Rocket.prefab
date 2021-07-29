@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a877f8b4fb9664aaabce18d0056f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _thrustForce: 1
+  _thrustForce: 11
 --- !u!114 &8042806647639473336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,8 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac304ed0101d9b49a878de40517ad0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotateSpeed: 10
-  _rotateModifierRate: 0.5
+  _rotateSpeed: 25
+  _rotateModifierRate: 0.6
   _rotateModifier:
     serializedVersion: 2
     m_Curve:
@@ -172,8 +172,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0

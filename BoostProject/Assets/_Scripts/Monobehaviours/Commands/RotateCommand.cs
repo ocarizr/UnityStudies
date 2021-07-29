@@ -11,7 +11,6 @@ namespace Monobehaviours.Commands
         private IRotateInput _input;
         private Rigidbody _rigidbody;
         private Coroutine _rotate;
-
         private WaitForFixedUpdate _waitForFixedUpdate;
 
         [SerializeField] private float _rotateSpeed;
@@ -38,18 +37,27 @@ namespace Monobehaviours.Commands
             var time = Time.time;
             while (_input.RotateInput != 0f)
             {
-                // Calculates the speed
-                var elapsed = Time.time - time;
-                var speed = _rotateSpeed * _rotateModifier.Evaluate(Mathf.Clamp01(elapsed * _rotateModifierRate)) * _input.RotateInput;
-                // Calculates the next rotation
-                var currRotation = _rigidbody.rotation.eulerAngles;
-                var nextRotation = currRotation + Vector3.forward * speed * Time.fixedDeltaTime;
-                // Rotates
+                var speed = CalculateSpeed(time);
+                var nextRotation = GetNextRotation(speed);
                 _rigidbody.MoveRotation(Quaternion.Euler(nextRotation));
                 yield return _waitForFixedUpdate;
             }
 
             _rotate = null;
+        }
+
+        private float CalculateSpeed(float time)
+        {
+            var elapsed = Time.time - time;
+            var curveIndex = Mathf.Clamp01(elapsed * _rotateModifierRate);
+            return _rotateSpeed * _rotateModifier.Evaluate(curveIndex) * _input.RotateInput;
+        }
+
+        private Vector3 GetNextRotation(float speed)
+        {
+            var currRotation = _rigidbody.rotation.eulerAngles;
+            var timeScaledSpeed = speed * Time.fixedDeltaTime;
+            return currRotation + (Vector3.forward * timeScaledSpeed);
         }
     }
 }

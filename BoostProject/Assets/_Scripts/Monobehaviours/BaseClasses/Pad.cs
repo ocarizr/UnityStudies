@@ -1,27 +1,19 @@
 using UnityEngine;
 using Interfaces.Level;
 using Compositions.Enum;
-using Compositions.Behaviours;
+using Compositions.Factories;
 
 namespace Monobehaviours.BaseClasses
 {
     public class Pad : MonoBehaviour, IPad
     {
-        [SerializeField] protected PadType _podType;
+        [SerializeField] protected PadType _padType;
 
-        private IPad _podBehaviour;
+        private IPad _padBehaviour;
 
         private void Awake()
         {
-            switch (_podType)
-            {
-                case PadType.Launch:
-                    _podBehaviour = new LaunchPad();
-                    break;
-                case PadType.Landing:
-                    _podBehaviour = new LandingPad();
-                    break;
-            }
+            _padBehaviour = PadBehaviourFactory.Build(_padType);
         }
     }
 }
