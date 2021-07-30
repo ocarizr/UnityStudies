@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Interfaces.Input;
 using Monobehaviours.Abstracts;
+using Compositions.BaseClasses;
 
 namespace Monobehaviours.Commands
 {
@@ -14,6 +15,7 @@ namespace Monobehaviours.Commands
         private WaitForFixedUpdate _waitForFixedUpdate;
 
         [SerializeField] private float _thrustForce;
+        [SerializeField] private ThrustSound _thrustSound;
 
         private void Awake()
         {
@@ -26,12 +28,14 @@ namespace Monobehaviours.Commands
 
         private IEnumerator Thrust()
         {
+            _thrustSound.Play();
             while (_input.ThrustInput > 0f)
             {
                 _rigidbody.AddRelativeForce(Vector3.up * _thrustForce, ForceMode.Force);
                 yield return _waitForFixedUpdate;
             }
 
+            _thrustSound.Stop();
             _thrust = null;
         }
 
