@@ -1,0 +1,18 @@
+{
+    "name": "Controllers",
+    "rootNamespace": "",
+    "references": [
+        "GUID:3811bd09f7cb691498a673b51dc10890",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:ba9079c885067b34a9e600d3ffd371bb"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

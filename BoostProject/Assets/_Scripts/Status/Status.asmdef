@@ -1,0 +1,16 @@
+{
+    "name": "Status",
+    "rootNamespace": "",
+    "references": [
+        "GUID:4cd4ea13d9003e644b791ad829c1121d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
